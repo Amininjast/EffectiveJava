@@ -1,5 +1,7 @@
 package s2.e1;
 
+import java.util.Objects;
+
 public class Equal {
     private String name;
     private int age;
@@ -25,7 +27,12 @@ public class Equal {
         if (obj == this) return true;
         if (!(obj instanceof Equal)) return false;
         Equal user = (Equal) obj;
-        if (user.name == this.name && user.age == this.age) return true;
+        if (user.name.equals(this.name) && user.age == this.age) return true;
         return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, age);
     }
 }
